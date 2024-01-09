@@ -1,0 +1,20 @@
+image: ecr.aws.steedos.cn/dockerhub/steedos/gitpod-workspace-base:2.2.5
+
+# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 80
+    onOpen: ignore
+    visibility: public
+
+# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: magento
+    command: |
+      echo "MAGENTO_HOST=$(gp url 80)" >> magento/.env
+      mkdir magento_data
+      chmod 777 magento_data
+      mkdir mariadb_data
+      chmod 777 mariadb_data
+      mkdir elasticsearch_data
+      chmod 777 elasticsearch_data
+      docker-compose up

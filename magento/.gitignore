@@ -1,0 +1,5 @@
+.env
+
+mariadb_data
+magento_data
+elasticsearch_data
