@@ -10,11 +10,8 @@ ports:
 tasks:
   - name: magento
     command: |
-      echo "MAGENTO_HOST=$(gp url 80)" >> magento/.env
-      mkdir magento_data
-      chmod 777 magento_data
-      mkdir mariadb_data
-      chmod 777 mariadb_data
-      mkdir elasticsearch_data
-      chmod 777 elasticsearch_data
+      export MAGENTO_URL=$(gp url 80)
+      export MAGENTO_HOST=${MAGENTO_URL/https:\/\//}
+      echo "MAGENTO_HOST=$(MAGENTO_HOST)" >> magento/.env
+      
       docker-compose up
