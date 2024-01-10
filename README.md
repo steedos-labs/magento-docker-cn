@@ -46,7 +46,7 @@ magentorocks1
 
 ```shell
 docker-compose down
-docker volume rm opensearch-data
-docker volume rm magento-data
-docker volume rm mysql-data
+docker volume rm docker_opensearch-data
+docker volume rm docker_magento-data
+docker volume rm docker_mysql-data
 ```

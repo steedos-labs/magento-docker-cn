@@ -1,16 +1,6 @@
 # Docker Image for Magento Open Source 2
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/alexcheng1982)
-
-**Starting from Magento 2.4.x, container images are now hosted in [GitHub Container Registry](https://github.com/alexcheng1982/docker-magento2/pkgs/container/docker-magento2).**
-
 This repo provides Docker images for different Magento 2.4 versions. Refer to [this page](https://github.com/alexcheng1982/docker-magento2/pkgs/container/docker-magento2/versions) to see all available versions.
-
-| Version    | Container image                                  |
-| ---------- | ------------------------------------------------ |
-| `2.4.6-p3` | `ghcr.io/alexcheng1982/docker-magento2:2.4.6-p3` |
-| `2.4.5-p5` | `ghcr.io/alexcheng1982/docker-magento2:2.4.5-p5` |
-| `2.4.4-p6` | `ghcr.io/alexcheng1982/docker-magento2:2.4.4-p6` |
 
 This docker image is based on my [docker-apache2-php8](https://github.com/alexcheng1982/docker-apache2-php8) image for Apache 2 and PHP 8. Please refer to the image label `php_version` for the actual PHP version. In general, Magento uses PHP `8.1` starting from `2.4.4`. Versions `2.4.2` and `2.4.3` use PHP `7.4`. Please refer to the label `php_version` of the image to get the actual PHP version.
 
