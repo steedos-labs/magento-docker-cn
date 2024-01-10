@@ -10,8 +10,6 @@ ports:
 tasks:
   - name: magento
     command: |
-      export MAGENTO_URL=$(gp url 80)
-      export MAGENTO_HOST=${MAGENTO_URL/https:\/\//}
-      echo "MAGENTO_HOST=$(MAGENTO_HOST)" >> magento/.env
+      echo "MAGENTO_URL=$(gp url 80)" >> docker/.env.local
       
       docker-compose up

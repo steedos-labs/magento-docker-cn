@@ -1,7 +1,6 @@
 version: '3.0'
 services:
   magento:
-    container_name: magento
     image: ghcr.io/alexcheng1982/docker-magento2:2.4.6-p3
     ports:
       - "80:80"
@@ -17,7 +16,6 @@ services:
       - .env
       - .env.local
   mysql:
-    container_name: mysql
     image: mysql:8.0.0
     volumes:
       - mysql-data:/var/lib/mysql
