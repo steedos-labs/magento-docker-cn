@@ -9,7 +9,7 @@ run magento with [docker](https://github.com/alexcheng1982/docker-magento2)
 ### Setup ENV
 
 ```shell
-export MAGENTO_HOST=localhost
+echo "MAGENTO_URL=http://localhost" >> .env.local
 ```
 
 ### Start Magento Docker

@@ -8,8 +8,8 @@ ports:
 tasks:
   - name: magento
     command: |
-      echo "MAGENTO_URL=$(gp url 80)" >> docker/.env.local
+      echo "MAGENTO_URL=$(gp url 80)" >> .env.local
       cd docker
       docker-compose up
-      docker exec -it docker-magento-1 install-magento
-      docker exec -it docker-magento-1 install-sampledata
+      docker exec -it magento install-magento
+      docker exec -it magento install-sampledata
