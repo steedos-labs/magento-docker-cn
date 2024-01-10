@@ -1,4 +1,4 @@
-Steedos Magento Connector
+Magento2 中文版 
 ===
 
 

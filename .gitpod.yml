@@ -1,5 +1,3 @@
-image: ecr.aws.steedos.cn/dockerhub/steedos/gitpod-workspace-base:2.2.5
-
 # List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/config-ports/
 ports:
   - port: 80
@@ -11,5 +9,7 @@ tasks:
   - name: magento
     command: |
       echo "MAGENTO_URL=$(gp url 80)" >> docker/.env.local
-      
+      cd docker
       docker-compose up
+      docker exec -it docker-magento-1 install-magento
+      docker exec -it docker-magento-1 install-sampledata
