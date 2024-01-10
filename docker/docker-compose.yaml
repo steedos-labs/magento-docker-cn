@@ -1,7 +1,10 @@
 version: '3.0'
 services:
   magento:
-    image: ghcr.io/alexcheng1982/docker-magento2:2.4.6-p3
+    image: steedos/magento:2.4.6-p3
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     ports:
       - "80:80"
     links:
@@ -11,7 +14,7 @@ services:
       - mysql
       - opensearch
     volumes: 
-      - magento-data:/var/www/html  
+      - magento-data:/var/www/html
     env_file:
       - .env
       - .env.local
