@@ -1,0 +1,59 @@
+version: '3.0'
+services:
+  magento:
+    container_name: magento
+    image: ghcr.io/alexcheng1982/docker-magento2:2.4.6-p3
+    ports:
+      - "80:80"
+    links:
+      - mysql
+      - opensearch
+    depends_on:
+      - mysql
+      - opensearch
+    volumes: 
+      - magento-data:/var/www/html  
+    env_file:
+      - .env
+      - .env.local
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.0
+    volumes:
+      - mysql-data:/var/lib/mysql
+    env_file:
+      - .env
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8580:80"
+    links:
+      - mysql
+    depends_on:
+      - mysql
+  opensearch:
+    image: opensearchproject/opensearch:2
+    environment:
+      # - cluster.name=opensearch-cluster
+      - discovery.type=single-node
+      - node.name=opensearch
+      - discovery.seed_hosts=opensearch
+      # - cluster.initial_cluster_manager_nodes=opensearch
+      # - bootstrap.memory_lock=true 
+      - plugins.security.disabled=true
+    # ulimits:
+    #   memlock:
+    #     soft: -1
+    #     hard: -1
+    #   nofile:
+    #     soft: 65536
+    #     hard: 65536
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    ports:
+      - 9200:9200
+      - 9600:9600  
+volumes:
+  magento-data:
+  mysql-data:
+  opensearch-data:

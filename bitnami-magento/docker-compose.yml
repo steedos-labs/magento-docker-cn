@@ -21,7 +21,7 @@ services:
       - .env
     environment:
       # - MAGENTO_HOST=localhost
-      - MAGENTO_ENABLE_ADMIN_HTTPS=yes
+      # - MAGENTO_ENABLE_ADMIN_HTTPS=yes
       - MAGENTO_DATABASE_HOST=mariadb
       - MAGENTO_DATABASE_PORT_NUMBER=3306
       - MAGENTO_DATABASE_USER=bn_magento
