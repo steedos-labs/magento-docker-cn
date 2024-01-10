@@ -17,6 +17,7 @@ export MAGENTO_HOST=localhost
 ```shell
 docker-compose up
 docker exec -it magento install-magento
+docker exec -it magento install-sampledata
 ```
 
 
