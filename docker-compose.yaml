@@ -2,8 +2,9 @@ version: '3.0'
 services:
   magento:
     image: steedos/magento:2.4.6-r1
+    container_name: magento
     build:
-      context: .
+      context: docker
       dockerfile: ./Dockerfile
     ports:
       - "80:80"

@@ -15,10 +15,9 @@ export MAGENTO_HOST=localhost
 ### Start Magento Docker
 
 ```shell
-cd docker
 docker-compose up
-docker exec -it docker-magento-1 install-magento
-docker exec -it docker-magento-1 install-sampledata
+docker exec -it magento install-magento
+docker exec -it magento install-sampledata
 ```
 
 
@@ -27,7 +26,7 @@ docker exec -it docker-magento-1 install-sampledata
 [zh_CN language package](https://github.com/magento-l10n/language-zh_CN/tree/master)
 
 ```shell
-docker exec -it docker-magento-1 /bin/bash
+docker exec -it magento /bin/bash
 composer require community-engineering/language-zh_cn
 php bin/magento setup:static-content:deploy zh_Hans_CN -f
 php bin/magento indexer:reindex
