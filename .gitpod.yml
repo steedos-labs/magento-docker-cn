@@ -9,7 +9,6 @@ tasks:
   - name: magento
     command: |
       echo "MAGENTO_URL=$(gp url 80)" >> .env.local
-      cd docker
       docker-compose up
       docker exec -it magento install-magento
       docker exec -it magento install-sampledata

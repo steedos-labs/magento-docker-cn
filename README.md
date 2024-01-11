@@ -34,6 +34,15 @@ php bin/magento cache:clean
 php bin/magento cache:flush
 ```
 
+### Install Keycloak
+
+```
+docker exec -it magento /bin/bash
+composer require miniorange_inc/saml-sp-single-sign-on:v4.0.0
+bin/magento setup:upgrade
+```
+
+
 ### Login to Admin
 
 http://localhost/admin
@@ -41,11 +50,14 @@ admin
 magentorocks1
 
 
-### Reset Docker and REMOVE Volumes
+### Stop Docker
 
 ```shell
 docker-compose down
-docker volume rm docker_opensearch-data
-docker volume rm docker_magento-data
-docker volume rm docker_mysql-data
+```
+
+### Stop Docker and REMOVE Volumes
+
+```shell
+docker-compose down -v
 ```
