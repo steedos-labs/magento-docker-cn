@@ -15,7 +15,7 @@ echo "MAGENTO_URL=http://localhost" >> .env.local
 ### Start Magento Docker
 
 ```shell
-docker-compose up
+docker-compose up -d
 docker exec -it magento install-magento
 docker exec -it magento install-sampledata
 ```
