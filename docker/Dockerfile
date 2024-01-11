@@ -56,7 +56,6 @@ RUN a2enmod rewrite
 RUN echo "memory_limit=2048M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
 RUN composer require community-engineering/language-zh_cn
-RUN composer require miniorange_inc/saml-sp-single-sign-on:v4.0.0
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

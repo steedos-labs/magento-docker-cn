@@ -34,11 +34,21 @@ php bin/magento cache:clean
 php bin/magento cache:flush
 ```
 
-### Install Keycloak
+### Install SAML SSO
 
 ```
 docker exec -it magento /bin/bash
 composer require miniorange_inc/saml-sp-single-sign-on:v4.0.0
+bin/magento setup:di:compile
+bin/magento setup:upgrade
+```
+
+### Install Keycloak SSO
+
+```
+docker exec -it magento /bin/bash
+composer require miniorange_inc/miniorange-keycloak-sso:v1.0.0
+bin/magento setup:di:compile
 bin/magento setup:upgrade
 ```
 
