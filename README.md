@@ -52,6 +52,14 @@ bin/magento setup:di:compile
 bin/magento setup:upgrade
 ```
 
+### Install OAuth SSO
+
+```
+docker exec -it magento /bin/bash
+composer require miniorange_inc/miniorange-oauth-sso:v4.1.5
+bin/magento setup:di:compile
+bin/magento setup:upgrade
+```
 
 ### Login to Admin
 
