@@ -20,6 +20,26 @@ docker exec -it magento install-magento
 docker exec -it magento install-sampledata
 ```
 
+### Login to Admin
+
+http://localhost/admin
+admin
+magentorocks1
+
+
+### Stop Docker
+
+```shell
+docker-compose down
+```
+
+### Stop Docker and REMOVE Volumes
+
+```shell
+docker-compose down -v
+```
+
+## Install Extensions
 
 ### Install zh-CN language package
 
@@ -59,23 +79,4 @@ docker exec -it magento /bin/bash
 composer require miniorange_inc/miniorange-oauth-sso:v4.1.5
 bin/magento setup:di:compile
 bin/magento setup:upgrade
-```
-
-### Login to Admin
-
-http://localhost/admin
-admin
-magentorocks1
-
-
-### Stop Docker
-
-```shell
-docker-compose down
-```
-
-### Stop Docker and REMOVE Volumes
-
-```shell
-docker-compose down -v
 ```
