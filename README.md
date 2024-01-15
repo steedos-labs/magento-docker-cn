@@ -16,8 +16,8 @@ echo "MAGENTO_URL=http://localhost" >> .env.local
 
 ```shell
 docker-compose up -d
-docker exec -it magento install-magento
-docker exec -it magento install-sampledata
+docker-compose exec -it magento install-magento
+docker-compose exec -it magento install-sampledata
 ```
 
 ### Login to Admin
@@ -45,7 +45,7 @@ docker-compose down -v
 ### Install SAML SSO
 
 ```
-docker exec -it magento /bin/bash
+docker-compose exec -it magento /bin/bash
 composer require miniorange_inc/saml-sp-single-sign-on:v4.0.0
 bin/magento setup:di:compile
 bin/magento setup:upgrade
@@ -54,7 +54,7 @@ bin/magento setup:upgrade
 ### Install Keycloak SSO
 
 ```
-docker exec -it magento /bin/bash
+docker-compose exec -it magento /bin/bash
 composer require miniorange_inc/miniorange-keycloak-sso:v1.0.0
 bin/magento setup:di:compile
 bin/magento setup:upgrade
@@ -63,7 +63,7 @@ bin/magento setup:upgrade
 ### Install OAuth SSO
 
 ```
-docker exec -it magento /bin/bash
+docker-compose exec -it magento /bin/bash
 composer require miniorange_inc/miniorange-oauth-sso:v4.1.5
 bin/magento setup:di:compile
 bin/magento setup:upgrade

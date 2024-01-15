@@ -1,6 +1,6 @@
-FROM ghcr.io/alexcheng1982/docker-apache2-php8:8.1
+FROM php:8.1-apache
 
-LABEL maintainer="alexcheng1982@gmail.com"
+LABEL maintainer="zhuangjianguo@gmail.com"
 LABEL php_version="8.1"
 LABEL magento_version="2.4.6-p3"
 LABEL description="Magento Open Source 2.4.6-p3 with PHP 8.1"
@@ -13,7 +13,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 COPY ./auth.json $COMPOSER_HOME
 
-RUN requirements="libpng++-dev libzip-dev libmcrypt-dev libmcrypt4 libcurl3-dev libfreetype6 libjpeg-turbo8 libjpeg-turbo8-dev libfreetype6-dev libicu-dev libxslt1-dev zip unzip libxml2 libonig-dev" \
+RUN requirements="libpng++-dev libzip-dev libmcrypt-dev libmcrypt4 libcurl3-dev libfreetype6 libjpeg62-turbo libjpeg62-turbo-dev libfreetype6-dev libicu-dev libxslt1-dev zip unzip libxml2 libonig-dev" \
     set -eux; \
     apt-get update; \
     apt-get install -y $requirements; \
