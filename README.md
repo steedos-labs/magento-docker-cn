@@ -39,20 +39,8 @@ docker-compose down
 docker-compose down -v
 ```
 
-## Install Extensions
+## Install Extensions 
 
-### Install zh-CN language package
-
-[zh_CN language package](https://github.com/magento-l10n/language-zh_CN/tree/master)
-
-```shell
-docker exec -it magento /bin/bash
-composer require community-engineering/language-zh_cn
-php bin/magento setup:static-content:deploy zh_Hans_CN -f
-php bin/magento indexer:reindex
-php bin/magento cache:clean
-php bin/magento cache:flush
-```
 
 ### Install SAML SSO
 
