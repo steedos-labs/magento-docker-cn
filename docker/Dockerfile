@@ -8,10 +8,12 @@ LABEL description="Magento Open Source 2.4.6-p3 with PHP 8.1"
 ENV MAGENTO_VERSION 2.4.6-p3
 ENV INSTALL_DIR /var/www/html
 ENV COMPOSER_HOME /var/www/.composer/
+ENV SCRIPT_DIR /var/www/
 
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 COPY ./auth.json $COMPOSER_HOME
+COPY ./init.sh $SCRIPT_DIR
 
 RUN requirements="cron libpng++-dev libzip-dev libmcrypt-dev libmcrypt4 libcurl3-dev libfreetype6 libjpeg62-turbo libjpeg62-turbo-dev libfreetype6-dev libicu-dev libxslt1-dev zip unzip libxml2 libonig-dev" \
     set -eux; \
