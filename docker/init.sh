@@ -8,7 +8,7 @@ if [ ! -f "$init_flag_file" ]; then
     # 解压缩
     
     echo "copy start"
-    cp -rf /var/www/html/*.* $mnted_home_path
+    cp -rf /var/www/html/** $mnted_home_path
     echo "copy end"
 
     mkdir -p /pv_magento_mnted/.config/magento
